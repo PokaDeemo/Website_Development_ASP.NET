@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ASSIGNMENT02Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Account">
+    <Key>
+      <PropertyRef Name="AccountID" />
+    </Key>
+    <Property Name="AccountID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FullName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="AccountPassword" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="PersonAddress" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="PersonPhoneNo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Gender" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="BloodType" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="AccountRole" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DOB" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="Bookings" Relationship="ASSIGNMENT02Model.FK__Booking__Account__5CD6CB2B" FromRole="Account" ToRole="Booking" />
+  </EntityType>
+  <EntityContainer Name="ASSIGNMENT02Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Accounts" EntityType="Self.Account" />
+    <EntitySet Name="Bookings" EntityType="ASSIGNMENT02Model.Booking" />
+    <AssociationSet Name="FK__Booking__Account__5CD6CB2B" Association="ASSIGNMENT02Model.FK__Booking__Account__5CD6CB2B">
+      <End Role="Account" EntitySet="Accounts" />
+      <End Role="Booking" EntitySet="Bookings" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Booking">
+    <Key>
+      <PropertyRef Name="BookingID" />
+    </Key>
+    <Property Name="BookingID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BookingDate" Type="DateTime" Precision="0" />
+    <Property Name="TimeSlot" Type="Time" Precision="7" />
+    <Property Name="Department" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DoctorName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DoctorEmail" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="AccountID" Type="Int32" />
+    <Property Name="PatientName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="PatientEmail" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="BookingStatus" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Account" Relationship="ASSIGNMENT02Model.FK__Booking__Account__5CD6CB2B" FromRole="Booking" ToRole="Account" />
+  </EntityType>
+  <Association Name="FK__Booking__Account__5CD6CB2B">
+    <End Type="ASSIGNMENT02Model.Account" Role="Account" Multiplicity="0..1" />
+    <End Type="ASSIGNMENT02Model.Booking" Role="Booking" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Account">
+        <PropertyRef Name="AccountID" />
+      </Principal>
+      <Dependent Role="Booking">
+        <PropertyRef Name="AccountID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

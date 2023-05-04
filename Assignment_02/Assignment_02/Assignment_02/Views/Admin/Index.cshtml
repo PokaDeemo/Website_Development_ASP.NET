@@ -1,0 +1,180 @@
+﻿@model IEnumerable<Assignment_02.Models.Account>
+
+@{
+    ViewBag.Title = "Admin Panel";
+}
+
+
+<style>
+    .CreateButton {
+        background-color: dodgerblue;
+        text-decoration-color: white;
+        padding: 20px;
+        text-decoration: none;
+        height: 65px;
+        width: 150px;
+        font-family: Arial;
+        font-size: medium;
+        border-radius: 12px;
+        border: none;
+    }
+
+    .AdminButton {
+        background-color: red;
+        text-decoration-color: white;
+        padding: 10px;
+        text-decoration: none;
+        height: 75px;
+        width: 200px;
+        font-family: Arial;
+        font-size: medium;
+        border-radius: 12px;
+        border: none;
+    }
+
+    .EditButton {
+        background-color: dodgerblue;
+        padding: 10px;
+        text-decoration-color: white;
+        text-decoration: none;
+        height: 65px;
+        width: 80px;
+        font-family: Arial;
+        font-size: medium;
+        border-radius: 12px;
+        text-align: center;
+        outline: none;
+        outline: none;
+    }
+
+    .DetailButton {
+        background-color: forestgreen;
+        padding: 10px;
+        text-decoration-color: white;
+        text-decoration: none;
+        height: 65px;
+        width: 80px;
+        font-family: Arial;
+        font-size: Medium;
+        border-radius: 12px;
+        text-align: center;
+    }
+
+    .DeleteButton {
+        background-color: red;
+        padding: 10px;
+        text-decoration-color: white;
+        text-decoration: none;
+        height: 65px;
+        width: 80px;
+        font-family: Arial;
+        font-size: Medium;
+        border-radius: 12px;
+        text-align: center;
+    }
+
+    button {
+        outline: none;
+        border: none;
+    }
+
+    a:link {
+        color: white;
+        text-decoration: none;
+    }
+
+    a:hover {
+        color: black;
+        text-decoration: none;
+    }
+
+    a:visited {
+        color: white;
+        text-decoration: none;
+    }
+</style>
+
+<h2>Admin Control Panel</h2>
+
+<center>
+    <div class="CreateButton">
+        <a>@Html.ActionLink("Create New Account", "Create")</a>
+    </div>
+    <br />
+    <div class="AdminButton">
+        <a>@Html.ActionLink("Admin Control Panel (Appointment Data)", "Index", "AdminTwo")</a>
+    </div>
+</center>
+<br />
+<h2>Account Data</h2>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FullName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AccountPassword)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PersonAddress)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PersonPhoneNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Gender)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BloodType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AccountRole)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DOB)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FullName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AccountPassword)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PersonAddress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PersonPhoneNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Gender)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BloodType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AccountRole)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DOB)
+            </td>
+            <td>
+                <button class="EditButton">@Html.ActionLink("Edit", "Edit", new { id = item.AccountID }) </button>
+                <button class="DetailButton">@Html.ActionLink("Details", "Details", new { id = item.AccountID }) </button>
+                <button class="DeleteButton">@Html.ActionLink("Delete", "Delete", new { id = item.AccountID })</button>
+            </td>
+        </tr>
+    }
+
+</table>

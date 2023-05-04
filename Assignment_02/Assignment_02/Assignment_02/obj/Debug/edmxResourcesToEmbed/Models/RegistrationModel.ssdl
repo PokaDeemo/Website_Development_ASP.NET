@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ASSIGNMENT02Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Account">
+    <Key>
+      <PropertyRef Name="AccountID" />
+    </Key>
+    <Property Name="AccountID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FullName" Type="varchar" MaxLength="100" />
+    <Property Name="Email" Type="varchar" MaxLength="100" />
+    <Property Name="AccountPassword" Type="varchar" MaxLength="100" />
+    <Property Name="PersonAddress" Type="varchar" MaxLength="100" />
+    <Property Name="PersonPhoneNo" Type="varchar" MaxLength="100" />
+    <Property Name="Gender" Type="varchar" MaxLength="100" />
+    <Property Name="BloodType" Type="varchar" MaxLength="100" />
+    <Property Name="AccountRole" Type="varchar" MaxLength="100" />
+    <Property Name="DOB" Type="date" />
+  </EntityType>
+  <EntityType Name="Booking">
+    <Key>
+      <PropertyRef Name="BookingID" />
+    </Key>
+    <Property Name="BookingID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BookingDate" Type="date" />
+    <Property Name="TimeSlot" Type="time" Precision="7" />
+    <Property Name="Department" Type="varchar" MaxLength="100" />
+    <Property Name="DoctorName" Type="varchar" MaxLength="100" />
+    <Property Name="DoctorEmail" Type="varchar" MaxLength="100" />
+    <Property Name="AccountID" Type="int" />
+    <Property Name="PatientName" Type="varchar" MaxLength="100" />
+    <Property Name="PatientEmail" Type="varchar" MaxLength="100" />
+    <Property Name="BookingStatus" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <Association Name="FK__Booking__Account__5CD6CB2B">
+    <End Role="Account" Type="Self.Account" Multiplicity="0..1" />
+    <End Role="Booking" Type="Self.Booking" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Account">
+        <PropertyRef Name="AccountID" />
+      </Principal>
+      <Dependent Role="Booking">
+        <PropertyRef Name="AccountID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ASSIGNMENT02ModelStoreContainer">
+    <EntitySet Name="Account" EntityType="Self.Account" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Booking" EntityType="Self.Booking" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Booking__Account__5CD6CB2B" Association="Self.FK__Booking__Account__5CD6CB2B">
+      <End Role="Account" EntitySet="Account" />
+      <End Role="Booking" EntitySet="Booking" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

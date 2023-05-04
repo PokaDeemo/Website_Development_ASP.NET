@@ -1,0 +1,11 @@
+ICT365 (Assignment_02 Database)
+
+Account: AccountID, FullName, Email, AccountPassword, PersonAddress, PersonPhoneNo, Gender
+BloodType, AccountRole, DOB
+
+Booking: BookingID, BookingDate, TimeSlot, Doctor Name(For Admin/Doctor), Doctor Email, 
+Department/Reason, AccountID (Foreign Key), Status, Patient Name, Patient Email,  
+
+(Patient Add Booking Only)
+Doctor & Admin (Can Add,Edit,View and Delete Booking)
+

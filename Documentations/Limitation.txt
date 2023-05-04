@@ -1,0 +1,30 @@
+< Program >
+
+1. The Program/Webpage is not that advanced and it have limitation. 
+Which it only have basic function system like Create, Edit, View and Delete items from the webpage which will be update
+on the database automatically too. 
+
+2. The patients are able to view other patients appointment/booking data and details. 
+I not sure how to restrict the patient to view their own data and details only. 
+
+3. The AccountID For Doctor and Admin Control Panel when they wish to 
+create a appointment for the user it show the AccountID (First Name) Instead of the
+AccountID. Which i not sure how to fix that too. 
+
+4. The Webpage/Program is quite simple without much function and input. 
+
+5. This webpage/Program i would say is a skeleton or mock-up page given
+the amount of time i have and learn MVC from the beginning. I would improve more
+in the future and add more for function for it. 
+
+6. I try to implement the Navigation Bar for the Admin, Doctor and Patient so that
+they can click on the Navigation bar to return back to their own control panel
+but i fail to do that. Because of the role restriction the other user role also
+able to view the other Navigation Bar Link/Button. 
+
+Example: The Admin can see Patient/Doctor Control Panel Navigation Bar Button 
+same for the other way.
+
+This is why i never implement this future/function for the Navigation bar. 
+
+7. This webpage only have like 2 database but it should have more and properly linked

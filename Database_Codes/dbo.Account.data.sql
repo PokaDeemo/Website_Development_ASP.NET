@@ -1,0 +1,6 @@
+SET IDENTITY_INSERT [dbo].[Account] ON
+INSERT INTO [dbo].[Account] ([AccountID], [FullName], [Email], [AccountPassword], [PersonAddress], [PersonPhoneNo], [Gender], [BloodType], [AccountRole], [DOB]) VALUES (13, N'Admin', N'admin@gmail.com', N'1234', N'test', N'1234', N'Male', N'B+', N'Admin', N'2022-11-05')
+INSERT INTO [dbo].[Account] ([AccountID], [FullName], [Email], [AccountPassword], [PersonAddress], [PersonPhoneNo], [Gender], [BloodType], [AccountRole], [DOB]) VALUES (15, N'PatientTest_03', N'patienttest@gmail.com', N'1234', N'test', N'12345678', N'Female', N'O-', N'Patient', N'2022-11-24')
+INSERT INTO [dbo].[Account] ([AccountID], [FullName], [Email], [AccountPassword], [PersonAddress], [PersonPhoneNo], [Gender], [BloodType], [AccountRole], [DOB]) VALUES (18, N'Dr.Test', N'doctortest@yahoo.com', N'1234', N'testing', N'12345678', N'Male', N'B-', N'Doctor', N'2022-11-12')
+INSERT INTO [dbo].[Account] ([AccountID], [FullName], [Email], [AccountPassword], [PersonAddress], [PersonPhoneNo], [Gender], [BloodType], [AccountRole], [DOB]) VALUES (19, N'Dr.Daniel', N'doctortest2@yahoo.com', N'1234', N'Test', N'1234', N'Male', N'B-', N'Doctor', N'2022-11-05')
+SET IDENTITY_INSERT [dbo].[Account] OFF

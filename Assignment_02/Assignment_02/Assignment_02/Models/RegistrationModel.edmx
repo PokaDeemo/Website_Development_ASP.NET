@@ -1,0 +1,175 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ASSIGNMENT02Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Account">
+          <Key>
+            <PropertyRef Name="AccountID" />
+          </Key>
+          <Property Name="AccountID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FullName" Type="varchar" MaxLength="100" />
+          <Property Name="Email" Type="varchar" MaxLength="100" />
+          <Property Name="AccountPassword" Type="varchar" MaxLength="100" />
+          <Property Name="PersonAddress" Type="varchar" MaxLength="100" />
+          <Property Name="PersonPhoneNo" Type="varchar" MaxLength="100" />
+          <Property Name="Gender" Type="varchar" MaxLength="100" />
+          <Property Name="BloodType" Type="varchar" MaxLength="100" />
+          <Property Name="AccountRole" Type="varchar" MaxLength="100" />
+          <Property Name="DOB" Type="date" />
+        </EntityType>
+        <EntityType Name="Booking">
+          <Key>
+            <PropertyRef Name="BookingID" />
+          </Key>
+          <Property Name="BookingID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BookingDate" Type="date" />
+          <Property Name="TimeSlot" Type="time" Precision="7" />
+          <Property Name="Department" Type="varchar" MaxLength="100" />
+          <Property Name="DoctorName" Type="varchar" MaxLength="100" />
+          <Property Name="DoctorEmail" Type="varchar" MaxLength="100" />
+          <Property Name="AccountID" Type="int" />
+          <Property Name="PatientName" Type="varchar" MaxLength="100" />
+          <Property Name="PatientEmail" Type="varchar" MaxLength="100" />
+          <Property Name="BookingStatus" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <Association Name="FK__Booking__Account__5CD6CB2B">
+          <End Role="Account" Type="Self.Account" Multiplicity="0..1" />
+          <End Role="Booking" Type="Self.Booking" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Account">
+              <PropertyRef Name="AccountID" />
+            </Principal>
+            <Dependent Role="Booking">
+              <PropertyRef Name="AccountID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ASSIGNMENT02ModelStoreContainer">
+          <EntitySet Name="Account" EntityType="Self.Account" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Booking" EntityType="Self.Booking" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Booking__Account__5CD6CB2B" Association="Self.FK__Booking__Account__5CD6CB2B">
+            <End Role="Account" EntitySet="Account" />
+            <End Role="Booking" EntitySet="Booking" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ASSIGNMENT02Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Account">
+          <Key>
+            <PropertyRef Name="AccountID" />
+          </Key>
+          <Property Name="AccountID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FullName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="AccountPassword" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="PersonAddress" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="PersonPhoneNo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Gender" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="BloodType" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="AccountRole" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="DOB" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="Bookings" Relationship="ASSIGNMENT02Model.FK__Booking__Account__5CD6CB2B" FromRole="Account" ToRole="Booking" />
+        </EntityType>
+        <EntityContainer Name="ASSIGNMENT02Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Accounts" EntityType="Self.Account" />
+          <EntitySet Name="Bookings" EntityType="ASSIGNMENT02Model.Booking" />
+          <AssociationSet Name="FK__Booking__Account__5CD6CB2B" Association="ASSIGNMENT02Model.FK__Booking__Account__5CD6CB2B">
+            <End Role="Account" EntitySet="Accounts" />
+            <End Role="Booking" EntitySet="Bookings" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Booking">
+          <Key>
+            <PropertyRef Name="BookingID" />
+          </Key>
+          <Property Name="BookingID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BookingDate" Type="DateTime" Precision="0" />
+          <Property Name="TimeSlot" Type="Time" Precision="7" />
+          <Property Name="Department" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="DoctorName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="DoctorEmail" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="AccountID" Type="Int32" />
+          <Property Name="PatientName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="PatientEmail" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="BookingStatus" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Account" Relationship="ASSIGNMENT02Model.FK__Booking__Account__5CD6CB2B" FromRole="Booking" ToRole="Account" />
+        </EntityType>
+        <Association Name="FK__Booking__Account__5CD6CB2B">
+          <End Type="ASSIGNMENT02Model.Account" Role="Account" Multiplicity="0..1" />
+          <End Type="ASSIGNMENT02Model.Booking" Role="Booking" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Account">
+              <PropertyRef Name="AccountID" />
+            </Principal>
+            <Dependent Role="Booking">
+              <PropertyRef Name="AccountID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ASSIGNMENT02ModelStoreContainer" CdmEntityContainer="ASSIGNMENT02Entities">
+          <EntitySetMapping Name="Accounts">
+            <EntityTypeMapping TypeName="ASSIGNMENT02Model.Account">
+              <MappingFragment StoreEntitySet="Account">
+                <ScalarProperty Name="AccountID" ColumnName="AccountID" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="AccountPassword" ColumnName="AccountPassword" />
+                <ScalarProperty Name="PersonAddress" ColumnName="PersonAddress" />
+                <ScalarProperty Name="PersonPhoneNo" ColumnName="PersonPhoneNo" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="BloodType" ColumnName="BloodType" />
+                <ScalarProperty Name="AccountRole" ColumnName="AccountRole" />
+                <ScalarProperty Name="DOB" ColumnName="DOB" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Bookings">
+            <EntityTypeMapping TypeName="ASSIGNMENT02Model.Booking">
+              <MappingFragment StoreEntitySet="Booking">
+                <ScalarProperty Name="BookingStatus" ColumnName="BookingStatus" />
+                <ScalarProperty Name="PatientEmail" ColumnName="PatientEmail" />
+                <ScalarProperty Name="PatientName" ColumnName="PatientName" />
+                <ScalarProperty Name="AccountID" ColumnName="AccountID" />
+                <ScalarProperty Name="DoctorEmail" ColumnName="DoctorEmail" />
+                <ScalarProperty Name="DoctorName" ColumnName="DoctorName" />
+                <ScalarProperty Name="Department" ColumnName="Department" />
+                <ScalarProperty Name="TimeSlot" ColumnName="TimeSlot" />
+                <ScalarProperty Name="BookingDate" ColumnName="BookingDate" />
+                <ScalarProperty Name="BookingID" ColumnName="BookingID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

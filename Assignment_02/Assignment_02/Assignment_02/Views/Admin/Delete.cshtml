@@ -1,0 +1,146 @@
+﻿@model Assignment_02.Models.Account
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+
+<style>
+    .BackButton {
+        background-color: dodgerblue;
+        text-decoration-color: white;
+        padding: 10px;
+        text-decoration: none;
+        height: 60px;
+        width: 120px;
+        font-family: Arial;
+        font-size: 15px;
+        border-radius: 12px;
+        border: none;
+        text-align: center;
+    }
+
+    button {
+        outline: none;
+        border: none;
+    }
+
+    a:link {
+        color: white;
+        text-decoration: none;
+    }
+
+    a:hover {
+        color: black;
+        text-decoration: none;
+    }
+
+    a:visited {
+        color: white;
+        text-decoration: none;
+    }
+</style>
+
+<script>
+    function delete_alert()
+    {
+        alert("You have delete the Account!.");
+    }
+</script>
+
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Admin Delete User Account</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.FullName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FullName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AccountPassword)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AccountPassword)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PersonAddress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PersonAddress)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PersonPhoneNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PersonPhoneNo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Gender)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Gender)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BloodType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BloodType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AccountRole)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AccountRole)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DOB)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DOB)
+        </dd>
+
+    </dl>
+
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input style="background-color:red;color:white" onclick="delete_alert()" type="submit" value="Delete" class="btn btn-default" />
+        </div>
+    }
+        <br />
+        <div>
+            <button class="BackButton">@Html.ActionLink("Back to List", "Index")</button>
+        </div>
+    </div>

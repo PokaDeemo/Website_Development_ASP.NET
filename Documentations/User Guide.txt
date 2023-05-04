@@ -1,0 +1,46 @@
+< User Guide For the Assignment Program/Website > 
+
+Murdoch Hospital -> Will also just bring the user back to the homepage content.
+Home button/link -> Will just bring the user back to the homepage content.
+About button/link -> Will just bring the user to the About Us page content of the
+hosptial. Where the user can learn about the hospital history and story.
+Contact button/link -> Will just bring the user to the Contact Us Page content
+of the hospital where the user can find the contact details for the hospital.
+Service button/link -> Will just bring the user to the Services Page Content of the
+hospital where the user can find out what kind of services or treatment that the
+hospital are providing.
+
+Registration button/link -> Will bring the user to the registration page. Where
+the user can register their account so that they will be able to login and use
+the hospital webpage system. User will have to enter their own information when
+register/create an account if not they won't be able to go through it. 
+For testing purpose i set the Role on the registration page. The user
+also can return to back to the homepage by clicking on the "Back to Homepage" button.
+
+Login button/link -> Will bring the user to the login page. Where they can login 
+with they account that they created or register from the registration page. They
+will have to enter their Email, Password and Account Role when login. The user
+also can return to back to the homepage by clicking on the "Back to Homepage" button.
+
+Admin Control Panel -> User will have to login with an Account Role "Admin" in order
+to go to the Admin Control Panel Webpage. Where the Admin User can Create, Edit, Delete
+and view all the user account details. 
+
+Admin Control Panel (Appointment Data) Button/Link -> The Admin User also can view the 
+Appointments/Booking datas. They are also allow to Create, Edit, Delete and View all the
+Appointments/Booking details. The Admin User also can click on the blue button 
+on the left below "Admin Control Panel" if they wish to return back to the
+Admin Control Panel (Account Data) webpage.  
+
+Patient Webpage/Panel -> User will have to login with an Account Role "Patient"
+in order to visit the Patient webpage. Where the patients can Create, Edit, Delete and
+view their appointments or bookings with the hospital.
+
+Doctor Webpage/Panel -> User will have to login with an Account Role "Doctor" 
+in order to visit the doctor webpage. Where the doctor can Create, Edit, Delete and 
+also view the patients appointments or booking from the hospital database.
+The Doctor Account Name/ID is their First name when they register their account
+on the registration webpage. 
+
+Log Out Button/Link -> User also can log out their account session by clicking on the
+"Log Out" Button/Link. 
